@@ -57,9 +57,27 @@ return [
     |
     */
 
+    /*
+        ici se troiuve d'autre features notament la photot de profil ou la possibilite de supprimer le compte
+        il existe dautre features dans le fichier fortify.php à voir
+    */
     'features' => [
         // Features::termsAndPrivacyPolicy(),
-        // Features::profilePhotos(),
+
+        Features::profilePhotos(),
+        /*
+            par defaut si tu veux utiliser cette feature la photot de profile qui sera genere sera la premiere lettre de ton utilisateur
+            si tu veux mettre une vrai image qui vient de ton pc elle sera cassée comment y remedier ?? --> -tu upload une photot 
+
+                            -tu l'ouvre dans un nouvelle oglet et tu remarque cette url : http://localhost/storage/profile-photos/iV9aX1kirHgjcnHiH6ztMpPKN8aJK5h258Zvkq9s.png
+
+                            -on a un unique id qui a ete genere pour ton image mais on a aussi le chemin qu commence par http://localhost alors qu'on travaille sur l'url http://127.0.0.1:8000 donc tu vas le changer dans le fichier .env dans "APP_URL"
+
+                            -normalement mnt on va s'occuper du fichier de stockage des photot qui est ici 'profile-photos' qui s situe dans le storage mais pas la peine avec la nouvelle maj de laravel9 c fait automatiquement ( si cela n'est pas fait automatiquement tu aurai du tapper la commande 'php artisan storage:link' )
+
+                            -voila tt est pret pour utiliser cette feature maintenant
+        */
+
         // Features::api(),
         // Features::teams(['invitations' => true]),
         Features::accountDeletion(),

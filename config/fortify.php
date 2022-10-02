@@ -131,6 +131,10 @@ return [
     |
     */
 
+    /*
+        ici t'as les differentes features de jetstream il suffit juste de commenter ou décommenter pour activer desactiver une ature en particulier
+        il existe dautre features dans le fichier jetstream.php à voir
+    */
     'features' => [
         Features::registration(),
         Features::resetPasswords(),
