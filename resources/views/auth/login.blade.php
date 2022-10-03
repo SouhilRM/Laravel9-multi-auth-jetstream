@@ -11,8 +11,12 @@
                 {{ session('status') }}
             </div>
         @endif
-
-        <form method="POST" action="{{ route('login') }}">
+        
+        <!--
+            vu que l'admin et le user utilise la meme vue donc au meme formulaire pour diferencier on va rajouter une condition:
+            Si il ya un guard alors on redirige vers guard=admin/login sinon ca sera juste /login pour un user lambda
+        -->
+        <form method="POST" action="{{ isset($guard) ? url($guard.'/login') : route('login') }}">
             @csrf
 
             <div>
